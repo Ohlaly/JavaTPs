@@ -27,7 +27,7 @@ public class LigneCommandeService implements IDAO<LigneCommande> {
 		try {
 			String sql = "insert into lignecommande values(null," + o.getQuantite() + "," + o.getPrixVente() + ","
 					+ o.getCommande().getId() + "," + o.getProduit().getId() + ")";
-			String sql3="delete from demande where id="+o.getCommande().getId();
+			String sql3="delete from commande where id="+o.getCommande().getId();
 			Statement st3=connexion.getConnection().createStatement();
 			st3.executeUpdate(sql3);
 			Produit p=ps.findById(o.getProduit().getId());

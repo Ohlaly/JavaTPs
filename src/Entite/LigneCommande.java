@@ -8,6 +8,7 @@ public class LigneCommande {
 	private Produit produit;
 	private static int comp;
 
+	
 	public LigneCommande(int quantite, double prixVente, Commande commande, Produit produit) {
 		this.id = ++comp;
 		this.quantite = quantite;
@@ -16,6 +17,7 @@ public class LigneCommande {
 		this.produit = produit;
 		this.produit.quantite = this.produit.quantite - this.quantite;
 	}
+	
 
 	public int getId() {
 		return id;

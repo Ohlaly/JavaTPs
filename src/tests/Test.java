@@ -53,7 +53,7 @@ public class Test {
 		Scanner sc2 = new Scanner(System.in);
 		Scanner sc = new Scanner(System.in);
 		int d = 0;
-		while (d < 19) {
+		while (d < 20) {
 			System.out.println("------------------------------MENU--------------------------------\n");
 			System.out.println("1-ajouter client ");
 			System.out.println("2-rechercher client ");
@@ -73,7 +73,8 @@ public class Test {
 			System.out.println("16-Faire une commande");
 			System.out.println("17-Supprimer Fournisseur");
 			System.out.println("18-ajouter rayon ");
-			System.out.println("19-quitter");
+			System.out.println("19-ajouter commande");
+			System.out.println("20-quitter");
 			System.out.println("donnez votre choix ");
 			d = sc2.nextInt();
 			switch (d) {
@@ -260,11 +261,12 @@ public class Test {
 				break;
 			}
 			case 16: {
+				Scanner sc10=new Scanner(System.in);
 				System.out.println("Donnez l'id de la commande");
 				for (Commande c : ccs.findAll()) {
 					System.out.println(c);
 				}
-				int cmd = sc.nextInt();
+				int cmd = sc10.nextInt();
 				System.out.println("Donnez l'id du produit");
 				for (Produit p : ps.findAll()) {
 					System.out.println(p);
@@ -298,6 +300,7 @@ public class Test {
 				break;
 			}
 			case 18:
+			{
 				Scanner sc5 = new Scanner(System.in);
 
 				System.out.println("donnez le code du rayon");
@@ -306,6 +309,20 @@ public class Test {
 				System.out.println("rayon ajoute avec succes");
 				break;
 
+			}
+			case 19:
+			{
+				Scanner sc9=new Scanner(System.in);
+				System.out.println("Donnez l'id du client");
+				for(Client c:cs.findAll())
+				{
+					System.out.println(c);
+				}
+				int vv=sc9.nextInt();
+				ccs.create(new Commande(new Date(),cs.findById(vv)));
+				System.out.println("commande ajoutee");
+				break;
+			}
 			}
 		}
 	}
